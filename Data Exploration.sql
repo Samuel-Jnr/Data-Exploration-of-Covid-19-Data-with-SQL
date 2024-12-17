@@ -1,5 +1,13 @@
 --DATA EXPLORATION WITH SQL
 
+/*
+Covid 19 Data Exploration 
+
+Skills used: Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types
+
+*/
+
+
 USE PortFolioProjects
 
 SELECT *
@@ -223,13 +231,13 @@ SELECT *, (Totalvaccinated/population)*100 AS PercentageTotalVaccinated
 FROM #PercentPopulationvaccinated
 
 
---CREATE VIEWS | Views are permanent, Temp tables are not permanent
+--CREATE VIEWS 
 Create View DeathRateByCountry AS
 SELECT country, Max(Cast(total_deaths as INT)) as HighestDeathRate  
 FROM PortFolioProjects..CovidDeaths
 --Where Location like '%Nigeria%'
 GROUP BY country
---ORDER BY HighestDeathRate Desc | Views doesn't run with Order By clause
+
 
 Select *
 FROM DeathRateByCountry
